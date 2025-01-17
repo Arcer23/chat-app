@@ -1,0 +1,38 @@
+{
+  "type": "module",
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "This is the real-time chat-app made using socket.io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arcer23/chat-app.git"
+  },
+  "keywords": [
+    "pranish",
+    "arcer",
+    "chatapp"
+  ],
+  "author": "Pranish Kadel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arcer23/chat-app/issues"
+  },
+  "homepage": "https://github.com/Arcer23/chat-app#readme",
+  "devDependencies": {
+    "prisma": "^6.2.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "nodemon": "^3.1.9"
+  }
+}
