@@ -7,6 +7,6 @@ export const connectDB = async () => {
       console.log("db donnected");
     })
     .catch((error) => {
-      console.log("error while connecting",error);
+      console.log("error while connecting", error);
     });
 };

@@ -13,10 +13,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model User {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
   username String?
-  email String @unique
-  name String
+  email    String    @unique
+  name     String
   password String
+  Message  Message[]
+}
+
+model Message {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  content    String
+  createdAt  DateTime @default(now())
+  userId     String   @db.ObjectId()
+  user       User     @relation(fields: [userId], references: [id])
+  chatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
+  chatRoomId String   @db.ObjectId
+}
+
+model ChatRoom {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  messages Message[]
 }
