@@ -3,6 +3,7 @@ import prisma from "../prisma/prisma.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import { UNABLE_TO_FIND_POSTINSTALL_TRIGGER_JSON_PARSE_ERROR } from "@prisma/client/scripts/postinstall.js";
 
 const { userSchema, loginUserSchema } = userValidator;
 
@@ -16,6 +17,7 @@ export const registerUser = async (req, res) => {
     });
   }
   const { username, name, email, password } = req.body;
+  console.log(req.body)
   try {
     const ifuser = await prisma.user.findFirst({
       where: {
@@ -29,7 +31,7 @@ export const registerUser = async (req, res) => {
       });
     }
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = prisma.user.create({
+    const user = await  prisma.user.create({
       data: {
         username,
         email,
@@ -97,13 +99,14 @@ export const loginUser = async (req, res) => {
       process.env.SECRETKEY,
       { expiresIn: "24h" }
     );
-
-    return res.status(200).json({
-      status: true,
-      message: "Login Successful",
-      token,
-      user: ifuser,
-    });
+    res.cookie("token", token)
+    return res.redirect("/dashboard")
+    // return res.status(200).json({
+    //   status: true,
+    //   message: "Login Successful",
+    //   token,
+    //   user: ifuser,
+    // });
   } catch (error) {
     console.error(error);
     return res.status(500).json({
@@ -144,11 +147,13 @@ export const updateUser = async (req, res) => {
         password: hashedPassword,
       },
     });
+
+   
     return res.status(200).json({
       status: true,
       message: "User updated Successfully",
       updatedUser,
-    });
+    }); 
   } catch (error) {
     res.status(400).json({
       status: false,

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatApp</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+  <body class="bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 min-h-screen flex flex-col justify-between">
+    <!-- Main Content (Centered) -->
+    <div class="flex flex-col justify-center items-center flex-grow text-white text-center px-6 md:px-12">
+      <!-- Header Section -->
+      <h1 class="text-5xl font-extrabold mb-4 tracking-tight md:text-6xl">
+        Welcome to ChatApp
+      </h1>
+      <p class="text-lg mb-8 font-light text-gray-200 md:text-xl">
+        Connect instantly with your friends and teams across the globe
+      </p>
+
+      <!-- Buttons to Login and Sign Up -->
+      <div class="flex justify-center space-x-6 mb-12">
+        <!-- Login Button -->
+        <a
+          href="/login"
+          class="px-8 py-4 bg-transparent border-2 border-white rounded-full text-white text-lg font-semibold hover:bg-white hover:text-gray-900 transition duration-300 ease-in-out transform hover:scale-105"
+          >Log In</a
+        >
+
+        <!-- Sign Up Button -->
+        <a
+          href="/signup"
+          class="px-8 py-4 bg-white text-gray-900 rounded-full text-lg font-semibold hover:bg-gray-100 hover:text-gray-700 transition duration-300 ease-in-out transform hover:scale-105"
+          >Sign Up</a
+        >
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="text-center text-gray-200 py-4 mt-auto">
+      <p>&copy; 2025 ChatApp. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
